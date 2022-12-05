@@ -14,5 +14,5 @@ jobs:
           # https://github.com/orgs|users/<ownerName>/projects/<projectNumber>
           project-url: https://github.com/users/masaki12-s/projects/3
           # repo and projectのtokenが必要
-          github-token: ${{ secrets.ORGANIZATION_GITHUB_TOKEN }}
+          github-token: ${{ secrets.AUTOMATION_TOKEN }}
 
