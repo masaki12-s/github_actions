@@ -1,4 +1,4 @@
-name: 'Automatically add issue to basebankdev project'
+name: 'add issue to kanban'
 
 on:
   issues:
@@ -13,4 +13,5 @@ jobs:
         with:
           project: local_project
           column: Todo
-          repo-token: ${{ secrets.AUTOMATION_TOKEN }}
+          repo-token: ${{ secrets.TOKEN }}
+
