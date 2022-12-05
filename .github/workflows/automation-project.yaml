@@ -13,5 +13,5 @@ jobs:
         with:
           project: local_project
           column: Todo
-          repo-token: ${{ secrets.ADD_ISSUES_TOKEN }}
+          repo-token: ${{ secrets.AUTOMATION_TOKEN }}
 
