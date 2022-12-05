@@ -1,19 +1,35 @@
-name: 'add issue to kanban'
+# name: 'add issue to kanban'
+
+# on:
+#   issues:
+#     types: [opened]
+
+# jobs:
+#   add-to-project:
+#     name: Add issue to project
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/add-to-project@v0.3.0
+#         with:
+#           # https://github.com/orgs|users/<ownerName>/projects/<projectNumber>
+#           project-url: https://github.com/users/masaki12-s/projects/3
+#           status_field: Todo
+#           # repo and projectのtokenが必要
+#           github-token: ${{ secrets.AUTOMATION_TOKEN }}
+
+name: 'Automatically add issue to basebankdev project'
 
 on:
   issues:
     types: [opened]
 
 jobs:
-  add-to-project:
-    name: Add issue to project
+  automate-project-columns:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/add-to-project@v0.3.0
+      - name: Move issues into pj column
+        uses: alex-page/github-project-automation-plus@v0.8.1
         with:
-          # https://github.com/orgs|users/<ownerName>/projects/<projectNumber>
-          project-url: https://github.com/users/masaki12-s/projects/3
-          status_field: Todo
-          # repo and projectのtokenが必要
-          github-token: ${{ secrets.AUTOMATION_TOKEN }}
-
+          project: local_project
+          column: Todo
+          repo-token: ${{ secrets.AUTOMATION_TOKEN }}
