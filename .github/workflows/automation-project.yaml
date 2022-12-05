@@ -5,13 +5,14 @@ on:
     types: [opened]
 
 jobs:
-  automate-project-columns:
+  add-to-project:
+    name: Add issue to project
     runs-on: ubuntu-latest
     steps:
-      - name: Move issues into pj column
-        uses: alex-page/github-project-automation-plus@v0.2.4
+      - uses: actions/add-to-project@v0.3.0
         with:
-          project: local_project
-          column: Todo
-          repo-token: ${{ secrets.AUTOMATION_TOKEN }}
+          # https://github.com/orgs|users/<ownerName>/projects/<projectNumber>
+          project-url: https://github.com/users/masaki12-s/projects/3
+          # repo and projectのtokenが必要
+          github-token: ${{ secrets.ORGANIZATION_GITHUB_TOKEN }}
 
