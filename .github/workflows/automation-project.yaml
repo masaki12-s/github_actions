@@ -13,7 +13,7 @@ jobs:
         with:
           # https://github.com/orgs|users/<ownerName>/projects/<projectNumber>
           project-url: https://github.com/users/masaki12-s/projects/3
-          column: Todo
+          status-field: Todo
           # repo and projectのtokenが必要
           github-token: ${{ secrets.AUTOMATION_TOKEN }}
 
