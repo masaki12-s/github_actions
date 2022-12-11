@@ -21,15 +21,27 @@ name: 'Automatically add issue to basebankdev project'
 
 on:
   issues:
-    types: [opened]
+    types: [opened, assigned]
 
+env:
+  PROJECT_NAME: local_project
 jobs:
-  automate-project-columns:
+  # automate-project-columns:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Move issues into pj column
+  #       uses: alex-page/github-project-automation-plus@v0.8.1
+  #       with:
+  #         project: local_project
+  #         column: Todo
+  #         repo-token: ${{ secrets.AUTOMATION_TOKEN }}
+  assign_issue_to_project:
+    name: Assign issues to projet
     runs-on: ubuntu-latest
     steps:
-      - name: Move issues into pj column
-        uses: alex-page/github-project-automation-plus@v0.8.1
+      - name: Assign issues to project
+        uses: technote-space/create-project-card-action@v1
+        if: "github.event.action == 'opened'"
         with:
-          project: local_project
-          column: Todo
-          repo-token: ${{ secrets.AUTOMATION_TOKEN }}
+          PROJECT: ${{env.PROJECT_NAME}}
+          COLUMN: Todo
