@@ -11,4 +11,4 @@ move-assigned-card:
         with:
           project: local_project
           column: In Progress
-          repo-token: ${{ secrets.AUTOMATION_TOKEN }}
+          repo-token: ${{ secrets.GHPROJECT_TOKEN }}
