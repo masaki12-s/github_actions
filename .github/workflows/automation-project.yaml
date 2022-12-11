@@ -15,16 +15,28 @@
 #           status_field: In Progress
 #           # repo and projectのtokenが必要
 #           github-token: ${{ secrets.AUTOMATION_TOKEN }}
-name: Move new issues into Triage
+# name: Move new issues into Triage
+# on:
+#   issues:
+#     types: [opened]
+# jobs:
+#   automate-project-columns:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: alex-page/github-project-automation-plus@v0.8.1
+#         with:
+#           project: local_project
+#           column: Todo
+#           repo-token: ${{ secrets.AUTOMATION_TOKEN }}
 on:
   issues:
     types: [opened]
 jobs:
-  automate-project-columns:
+  Add_New_Issue_To_Project:
     runs-on: ubuntu-latest
     steps:
-      - uses: alex-page/github-project-automation-plus@v0.8.1
-        with:
-          project: local_project
-          #column: Todo
-          repo-token: ${{ secrets.AUTOMATION_TOKEN }}
+    - uses: konradpabjan/actions-add-new-issue-to-column@v1.1
+      with:
+        action-token: "${{ secrets.AUTOMATION_TOKEN }}"
+        project-url: "https://github.com/users/masaki12-s/projects/3"
+        column-name: "Todo"
