@@ -36,13 +36,13 @@ jobs:
   #         column: Todo
   #         repo-token: ${{ secrets.AUTOMATION_TOKEN }}
   assign_issue_to_project:
-    name: Assign issues to projcet
+    name: Assign issues to project
     runs-on: ubuntu-latest
     steps:
       - name: Assign issues to project
         uses: technote-space/create-project-card-action@v1
         if: "github.event.action == 'opened'"
         with:
-          PROJECT: ${{env.PROJECT_NAME}}
+          PROJECT: local_project
           COLUMN: Todo
           repo-token: ${{ secrets.AUTOMATION_TOKEN }}
