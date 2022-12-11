@@ -1,5 +1,4 @@
 name: 'add issue to kanban'
-
 on:
   issues:
     types: [opened]
@@ -16,33 +15,4 @@ jobs:
           status_field: In Progress
           # repo and projectのtokenが必要
           github-token: ${{ secrets.AUTOMATION_TOKEN }}
-
-# name: 'Automatically add issue to basebankdev project'
-
-# on:
-#   issues:
-#     types: [opened, assigned]
-
-# env:
-#   PROJECT_NAME: local_project
-# jobs:
-  # automate-project-columns:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Move issues into pj column
-  #       uses: alex-page/github-project-automation-plus@v0.8.1
-  #       with:
-  #         project: local_project
-  #         column: Todo
-  #         repo-token: ${{ secrets.AUTOMATION_TOKEN }}
-  # assign_issue_to_project:
-  #   name: Assign issues to project
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Assign issues to project
-  #       uses: technote-space/create-project-card-action@v1
-  #       if: "github.event.action == 'opened'"
-  #       with:
-  #         PROJECT: https://github.com/users/masaki12-s/projects/3
-  #         COLUMN: Todo
-  #         repo-token: ${{ secrets.AUTOMATION_TOKEN }}
+  
