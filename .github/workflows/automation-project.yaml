@@ -43,6 +43,6 @@ jobs:
         uses: technote-space/create-project-card-action@v1
         if: "github.event.action == 'opened'"
         with:
-          PROJECT: local_project
+          PROJECT: https://github.com/users/masaki12-s/projects/3
           COLUMN: Todo
           repo-token: ${{ secrets.AUTOMATION_TOKEN }}
