@@ -28,15 +28,31 @@
 #           project: local_project
 #           column: Todo
 #           repo-token: ${{ secrets.AUTOMATION_TOKEN }}
+# on:
+#   issues:
+#     types: [opened]
+# jobs:
+#   Add_New_Issue_To_Project:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: konradpabjan/actions-add-new-issue-to-column@v1.1
+#       with:
+#         action-token: "${{ secrets.AUTOMATION_TOKEN }}"
+#         project-url: "https://github.com/users/masaki12-s/projects/3"
+#         column-name: "Todo"
 on:
   issues:
     types: [opened]
+name: Issue opened
 jobs:
-  Add_New_Issue_To_Project:
+  assign:
+    name: Assign issues to project
     runs-on: ubuntu-latest
     steps:
-    - uses: konradpabjan/actions-add-new-issue-to-column@v1.1
-      with:
-        action-token: "${{ secrets.AUTOMATION_TOKEN }}"
-        project-url: "https://github.com/users/masaki12-s/projects/3"
-        column-name: "Todo"
+      - name: Assign issues to project
+        uses: technote-space/create-project-card-action@v1
+        with:
+          PROJECT: local_project
+          COLUMN: Todo
+          CHECK_USER_PROJECT: true
+          GITHUB_TOKEN: ${{ secrets.AUTOMATION_TOKEN }}
