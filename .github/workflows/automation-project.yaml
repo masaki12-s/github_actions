@@ -1,20 +1,19 @@
-# name: 'add issue to kanban'
-# on:
-#   issues:
-#     types: [opened]
+name: 'add issue to kanban'
+on:
+  issues:
+    types: [opened]
 
-# jobs:
-#   add-to-project:
-#     name: Add issue to project
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/add-to-project@v0.3.0
-#         with:
-#           # https://github.com/orgs|users/<ownerName>/projects/<projectNumber>
-#           project-url: https://github.com/users/masaki12-s/projects/3
-#           status_field: In Progress
-#           # repo and projectのtokenが必要
-#           github-token: ${{ secrets.AUTOMATION_TOKEN }}
+jobs:
+  add-to-project:
+    name: Add issue to project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v0.3.0
+        with:
+          # https://github.com/orgs|users/<ownerName>/projects/<projectNumber>
+          project-url: https://github.com/users/masaki12-s/projects/3
+          # repo and projectのtokenが必要
+          github-token: ${{ secrets.AUTOMATION_TOKEN }}
 # name: Move new issues into Triage
 # on:
 #   issues:
@@ -40,19 +39,3 @@
 #         action-token: "${{ secrets.AUTOMATION_TOKEN }}"
 #         project-url: "https://github.com/users/masaki12-s/projects/3"
 #         column-name: "Todo"
-on:
-  issues:
-    types: [opened]
-name: Issue opened
-jobs:
-  assign:
-    name: Assign issues to project
-    runs-on: ubuntu-latest
-    steps:
-      - name: Assign issues to project
-        uses: technote-space/create-project-card-action@v1
-        with:
-          PROJECT: local_project
-          COLUMN: Todo
-          CHECK_USER_PROJECT: true
-          GITHUB_TOKEN: ${{ secrets.AUTOMATION_TOKEN }}
