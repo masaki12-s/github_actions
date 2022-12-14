@@ -16,8 +16,8 @@ jobs:
           # github-token: ${{ secrets.AUTOMATION_TOKEN }}
       - uses: alex-page/github-project-automation-plus@5bcba1c1c091a222584d10913e5c060d32c44044
         with:
-          project: project
-          column: Status
+          project: "project"
+          column: "To do"
           repo-token: ${{ secrets.AUTOMATION_TOKEN }}
 # name: Move new issues into Triage
 # on:
