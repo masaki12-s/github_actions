@@ -1,4 +1,4 @@
-name: Move assigned card
+name: Move Assigned Issues to Column
 on:
   issues:
     types:
@@ -7,7 +7,8 @@ jobs:
   move-assigned-card:
     runs-on: ubuntu-latest
     steps:
-      - uses: alex-page/github-project-automation-plus@5bcba1c1c091a222584d10913e5c060d32c44044
+      - name: Move issue to "Assigned" column
+        uses: alex-page/github-project-automation-plus@v0.6.0
         with:
           project: test
           column: In Progress
