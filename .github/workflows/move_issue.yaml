@@ -10,6 +10,6 @@ jobs:
       - name: Move issue to "Assigned" column
         uses: alex-page/github-project-automation-plus@v0.6.0
         with:
-          project: test'
+          project: 'test'
           column: 'In_Progress'
           repo-token: ${{ secrets.AUTOMATION_TOKEN }}
